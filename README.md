@@ -16,7 +16,7 @@ Outside the folders are the final version of models that we will introduce how t
 
 
 ### Running the audio model and conduct genre transfer
-**SlicingDataLoading.py** contains the data loader module. **audio_resnet_encoder_wavenet_decoder.py** contaisn the architecture of final version of model. 
+**SlicingDataLoading.py** contains the data loader module. **audio_resnet_encoder_wavenet_decoder.py** contains the architecture of final version of model. 
 
 If you need to re-run the training process, just open the **audio_model_training.ipynb**, run the cells there. The final model will be saved in the same repo as files ending as pth. 
 
