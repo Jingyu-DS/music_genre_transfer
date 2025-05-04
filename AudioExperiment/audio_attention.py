@@ -23,7 +23,7 @@ class SelfAttention1D(nn.Module):
         return out
 
 
-class AudioEncoderAttention(nn.Module):
+class Encoder(nn.Module):
     def __init__(self, latent_dim=128, input_length=330750):
         super().__init__()
         self.input_length = input_length
@@ -77,7 +77,7 @@ class AudioEncoderAttention(nn.Module):
         return mean, logvar, z
 
 
-class AudioDecoderAttention(nn.Module):
+class Decoder(nn.Module):
     def __init__(self, latent_dim=128, output_length=330750):
         super().__init__()
         self.latent_dim = latent_dim
