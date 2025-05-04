@@ -87,3 +87,4 @@ class TrainerCVAE:
             self.scheduler.step(avg_test_loss)
 
         print("Training complete!")
+        
