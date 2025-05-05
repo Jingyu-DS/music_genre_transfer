@@ -33,9 +33,9 @@ The codebase is structured into several modular files:
 - **image_prepare_data.py**: Utilities for audio processing, including mel-spectrogram conversion
 - **image_training(runner).py**: Main script that orchestrates the training workflow
 
-## Running the Audio VAE Model
+#### Running the Audio VAE Model
 
-### Training the Model
+##### Training the Model
 1. Ensure you have the required dependencies installed (PyTorch, librosa, matplotlib, numpy, soundfile)
 2. To train the model from scratch, simply run: “python image_training.py”
 3. This will:
@@ -44,14 +44,14 @@ The codebase is structured into several modular files:
 - Train the VAE with memory-efficient techniques
 - Save checkpoints to the `vae_logs` directory
 
-### Visualization and Audio Generation
+##### Visualization and Audio Generation
 
 The training process automatically generates:
 - Loss plots saved to `vae_logs/training_loss.png`
 - Audio reconstructions and random generations saved to the `audio_results` directory
 - Mel-spectrogram visualizations comparing original, reconstructed, and randomly generated samples
 
-### Model Customization
+##### Model Customization
 
 You can modify key parameters in the `image_training.py` file:
 - `root`: Path to your audio dataset
