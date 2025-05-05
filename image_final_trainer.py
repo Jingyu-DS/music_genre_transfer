@@ -1,6 +1,4 @@
 import os, gc, numpy as np, torch
-from loss import EfficientLoss
-
 
 class MemoryEfficientTrainer:
     def __init__(self, trainloader, validloader, encoder, decoder, device="cpu"):
