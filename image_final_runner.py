@@ -1,3 +1,8 @@
+from image_final_encoder import MemoryEfficientEncoder
+from image_final_decoder import MemoryEfficientDecoder
+from image_final_trainer import MemoryEfficientTrainer
+
+
 def main():
     root = "/content/Data/genres_original"
     genres = ['blues','classical','country','disco','hiphop',
