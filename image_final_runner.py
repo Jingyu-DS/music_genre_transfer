@@ -1,6 +1,9 @@
+from prepare_data import prepare_dataset
 from image_final_encoder import MemoryEfficientEncoder
 from image_final_decoder import MemoryEfficientDecoder
 from image_final_trainer import MemoryEfficientTrainer
+from image_final_visualize import memory_efficient_visualize
+
 
 
 def main():
