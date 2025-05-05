@@ -1,3 +1,5 @@
+from prepare_data import high_quality_mel_to_audio
+
 def memory_efficient_visualize(
     model, data_sample, n_samples=4, sr=22050, save_prefix="memory_efficient_sample"
 ):
@@ -58,13 +60,13 @@ def memory_efficient_visualize(
     plt.savefig(f'audio_results/{save_prefix}_spectrograms.png', dpi=200)
     plt.close()
 
-    print(f"✅ Visualization complete! Spectrograms and audio have been saved to the audio_results")
+    print(f"Visualization complete! Spectrograms and audio have been saved to the audio_results")
     print(f"Path to the first reconstruction audio: {audio_paths[0]}")
 
     # Play the first reconstructed audio
     try:
         from IPython.display import Audio, display
-        print("▶️ Playing the first reconstructed audio:")
+        print("Playing the first reconstructed audio:")
         audio_file = audio_paths[0]
         display(Audio(audio_file))
     except:
