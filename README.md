@@ -24,4 +24,40 @@ Then, it is ready to do the genre transfer of the music. You can open **audio_ge
 
 
 ### Running the Spectrogram VAE End-to-End
-prepare_data.py implements load_audio(), enhanced_audio_to_mel() and prepare_enhanced_dataset() to turn your WAV files into 1×128×512 Mel-spectrogram tensors and build train/validation DataLoaders. model.py defines LightResBlock, MemoryEfficientEncoder and MemoryEfficientDecoder. trainer.py brings these together in EfficientLoss and MemoryEfficientTrainer, handling the 0.7 MSE+0.3 grad+β·KL loss, cosine-annealing, gradient clipping, accumulation and checkpointing to vae_logs/. audio_io.py contains high_quality_mel_to_audio(), enhanced_visualize_and_play() and interpolate_latent_space() to convert spectrograms back to WAVs and save figures/audios under audio_results/.
+The codebase is structured into several modular files:
+
+- **image_encoder_decoder.py**: Contains the VAE architecture with `MemoryEfficientEncoder` and `MemoryEfficientDecoder` classes
+- **image_final_loss.py**: Implements the `EfficientLoss` class for training the VAE
+- **image_final_trainer.py**: Contains the `MemoryEfficientTrainer` class that manages the training process
+- **image_final_visualization.py**: Functions for visualizing model outputs and generating audio samples
+- **image_prepare_data.py**: Utilities for audio processing, including mel-spectrogram conversion
+- **image_training(runner).py**: Main script that orchestrates the training workflow
+
+## Running the Audio VAE Model
+
+### Training the Model
+1. Ensure you have the required dependencies installed (PyTorch, librosa, matplotlib, numpy, soundfile)
+2. To train the model from scratch, simply run: “python image_training.py”
+3. This will:
+- Load and process audio data from the specified genre folders
+- Initialize the encoder and decoder models
+- Train the VAE with memory-efficient techniques
+- Save checkpoints to the `vae_logs` directory
+
+### Visualization and Audio Generation
+
+The training process automatically generates:
+- Loss plots saved to `vae_logs/training_loss.png`
+- Audio reconstructions and random generations saved to the `audio_results` directory
+- Mel-spectrogram visualizations comparing original, reconstructed, and randomly generated samples
+
+### Model Customization
+
+You can modify key parameters in the `image_training.py` file:
+- `root`: Path to your audio dataset
+- `genres`: List of genre folders to include
+- `batch_size`: Training batch size (smaller values use less memory)
+- `latent_dim`: Size of the latent space representation
+- `epochs`: Number of training epochs
+
+The model is designed with memory efficiency in mind, using gradient accumulation and periodic garbage collection to handle larger audio datasets even with limited GPU resources.
