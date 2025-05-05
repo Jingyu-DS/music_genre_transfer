@@ -2,9 +2,7 @@ from prepare_data import prepare_dataset
 from image_final_encoder import MemoryEfficientEncoder
 from image_final_decoder import MemoryEfficientDecoder
 from image_final_trainer import MemoryEfficientTrainer
-from image_final_visualize import memory_efficient_visualize
-
-
+from image_final_visualization import memory_efficient_visualize
 
 def main():
     root = "/content/Data/genres_original"
