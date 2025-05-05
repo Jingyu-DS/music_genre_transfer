@@ -23,7 +23,7 @@ If you need to re-run the training process, just open the **audio_model_training
 Then, it is ready to do the genre transfer of the music. You can open **audio_genre_transfer_inference.ipynb** and change the paths of model to the pth files you saved. Then, run the cells, the bottom one will give you the transferred mel spectragram of five samples and one sample of audio after the genre transfer. 
 
 
-### Running the Spectrogram VAE End-to-End
+### Running the Mel Spectrogram VAE End-to-End
 The codebase is structured into several modular files:
 
 - **image_encoder_decoder.py**: Contains the VAE architecture with `MemoryEfficientEncoder` and `MemoryEfficientDecoder` classes
@@ -33,7 +33,7 @@ The codebase is structured into several modular files:
 - **image_prepare_data.py**: Utilities for audio processing, including mel-spectrogram conversion
 - **image_training(runner).py**: Main script that orchestrates the training workflow
 
-#### Running the Audio VAE Model
+#### Running the Mel Spectrogram VAE Model
 
 ##### Training the Model
 1. Ensure you have the required dependencies installed (PyTorch, librosa, matplotlib, numpy, soundfile)
