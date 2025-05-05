@@ -39,7 +39,7 @@ The codebase is structured into several modular files:
 1. Ensure you have the required dependencies installed (PyTorch, librosa, matplotlib, numpy, soundfile)
 2. To train the model from scratch, simply run: “python image_training.py”
 3. This will:
-- Load and process audio data from the specified genre folders
+- Load and process audio data from the specified genre folders and transfer to mel spectrogram
 - Initialize the encoder and decoder models
 - Train the VAE with memory-efficient techniques
 - Save checkpoints to the `vae_logs` directory
@@ -48,8 +48,8 @@ The codebase is structured into several modular files:
 
 The training process automatically generates:
 - Loss plots saved to `vae_logs/training_loss.png`
-- Audio reconstructions and random generations saved to the `audio_results` directory
 - Mel-spectrogram visualizations comparing original, reconstructed, and randomly generated samples
+- Audio reconstructions and random generations saved to the `audio_results` directory
 
 ##### Model Customization
 
