@@ -21,3 +21,7 @@ Outside the folders are the final version of models that we will introduce how t
 If you need to re-run the training process, just open the **audio_model_training.ipynb**, run the cells there. The final model will be saved in the same repo as files ending as pth. 
 
 Then, it is ready to do the genre transfer of the music. You can open **audio_genre_transfer_inference.ipynb** and change the paths of model to the pth files you saved. Then, run the cells, the bottom one will give you the transferred mel spectragram of five samples and one sample of audio after the genre transfer. 
+
+
+### Running the Spectrogram VAE End-to-End
+data_loader.py implements load_audio(), enhanced_audio_to_mel() and prepare_enhanced_dataset() to turn your WAV files into 1×128×512 Mel-spectrogram tensors and build train/validation DataLoaders. model.py defines LightResBlock, MemoryEfficientEncoder and MemoryEfficientDecoder. trainer.py brings these together in EfficientLoss and MemoryEfficientTrainer, handling the 0.7 MSE+0.3 grad+β·KL loss, cosine-annealing, gradient clipping, accumulation and checkpointing to vae_logs/. audio_io.py contains high_quality_mel_to_audio(), enhanced_visualize_and_play() and interpolate_latent_space() to convert spectrograms back to WAVs and save figures/audios under audio_results/.
